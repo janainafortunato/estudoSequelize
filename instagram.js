@@ -112,13 +112,30 @@ const { Op } = require('sequelize');
     console.log(resultado.toJSON());
 });*/
 
-Usuario.destroy({
+/*Usuario.destroy({
     where: {
         id: 3,
     }
 }).then((resultado) => {
     console.log(resultado);
-})
+})*/
+
+/*Usuario.findByPk(1, {include: ['posts']}).then(
+    usuario => {
+        console.log(usuario.toJSON());
+        sequelize.close();
+    }
+)*/
+
+Post.findByPk(1, {include: ['comentarios']}).then(
+    post => {
+        console.log(post.toJSON());
+        sequelize.close();
+    }
+);
+
+
+
 
 
 
